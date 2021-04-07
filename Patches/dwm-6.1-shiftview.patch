@@ -1,0 +1,47 @@
+Common subdirectories: dwm-upstream/.git and dwm/.git
+diff -up dwm-upstream/config.def.h dwm/config.def.h
+--- dwm-upstream/config.def.h   2014-09-27 11:30:34.159337794 +0300
++++ dwm/config.def.h    2014-09-27 11:33:54.349334692 +0300
+@@ -79,6 +79,8 @@ static Key keys[] = {
+        { MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+        { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
+        { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
++       { MODKEY,                       XK_Left,   shiftview,      {.i = -1 } },
++       { MODKEY,                       XK_Right,  shiftview,      {.i = +1 } },
+        TAGKEYS(                        XK_1,                      0)
+        TAGKEYS(                        XK_2,                      1)
+        TAGKEYS(                        XK_3,                      2)
+diff -up dwm-upstream/dwm.c dwm/dwm.c
+--- dwm-upstream/dwm.c  2014-09-27 11:30:34.159337794 +0300
++++ dwm/dwm.c   2014-09-27 11:30:57.739337429 +0300
+@@ -202,6 +202,7 @@ static void setfullscreen(Client *c, Boo
+ static void setlayout(const Arg *arg);
+ static void setmfact(const Arg *arg);
+ static void setup(void);
++static void shiftview(const Arg *arg);
+ static void showhide(Client *c);
+ static void sigchld(int unused);
+ static void spawn(const Arg *arg);
+@@ -1555,6 +1556,21 @@ setup(void) {
+ }
+
+ void
++shiftview(const Arg *arg) {
++       Arg shifted;
++
++       if(arg->i > 0) // left circular shift
++               shifted.ui = (selmon->tagset[selmon->seltags] << arg->i)
++                       | (selmon->tagset[selmon->seltags] >> (LENGTH(tags) - arg->i));
++
++       else // right circular shift
++               shifted.ui = selmon->tagset[selmon->seltags] >> (- arg->i)
++                       | selmon->tagset[selmon->seltags] << (LENGTH(tags) + arg->i);
++
++       view(&shifted);
++}
++
++void
+ showhide(Client *c) {
+        if(!c)
+                return;
+Only in dwm: dwm.c.orig
