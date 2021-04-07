@@ -105,6 +105,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_x,      spawn,           SHCMD("bash ~/Git/dmscripts/dmsearch")},	
 	{ MODKEY|ShiftMask,             XK_z,      spawn,           SHCMD("bash ~/Git/dmscripts/dmlogout")},	
 	{ MODKEY|ShiftMask,             XK_e,      spawn,           SHCMD("rofimoji")},
+	{ MODKEY,               	XK_v,      spawn,           SHCMD("~/bin/powermenu.sh")},
 	{ MODKEY,                       XK_c,      spawn,           SHCMD("~/bin/ewwclose")},
 	{ MODKEY,                       XK_grave,  togglescratch,  {.v = scratchpadcmd } },
 	{ MODKEY,                 	XK_Print,  spawn,  	    SHCMD("flameshot gui")},
