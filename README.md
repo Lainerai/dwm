@@ -10,3 +10,4 @@ Already patched with some patches.
 - [Scratchpad](https://dwm.suckless.org/patches/scratchpad/) > Mod + ` 
 - [Systray](https://dwm.suckless.org/patches/systray/)
 - [VanityGaps](https://dwm.suckless.org/patches/vanitygaps/)
+- [Sticky](https://dwm.suckless.org/patches/sticky/) > Mod + s
