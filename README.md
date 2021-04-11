@@ -8,6 +8,8 @@ Already patched with some patches.
 - [PerTag](https://dwm.suckless.org/patches/pertag/)
 - [SaveFloats](https://dwm.suckless.org/patches/save_floats/) > So you don't need to resize again and again the floating window ( this patch is so useful if you're using Picture-in-Picture)
 - [Scratchpad](https://dwm.suckless.org/patches/scratchpad/) > Mod + ` 
+- [dwm-scratchpad](https://github.com/GasparVardanyan/dwm-scratchpad)
 - [Systray](https://dwm.suckless.org/patches/systray/)
 - [VanityGaps](https://dwm.suckless.org/patches/vanitygaps/)
 - [Sticky](https://dwm.suckless.org/patches/sticky/) > Mod + s
+
